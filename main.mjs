@@ -1,14 +1,14 @@
 import express from 'express';
 import { callTwilio } from './twilio.mjs';
 
-let router = express.Router()
+const app = express()
 
-router.post("/call", async (req, res) => {
+app.post("/call", async (req, res) => {
 
     // just import and call the function
     try {
 
-        callTwilio(
+        await callTwilio(
             `Hello I am Abdul Ahad, this is my twilio calling boyler pallete, hello world, 
         yahoo! i made a calling API, that's amazing. I am Abdul Ahad. My github is ahad-s-t-s-9-9-0-1 
         and contact number is +-9-2-3-1-3-0-0-1-9-0-8-6, Pakistan zindabad, regards! Abdul Ahad`,
@@ -26,4 +26,6 @@ router.post("/call", async (req, res) => {
 
 })
 
-export default router
+app.listen(3000, () => {
+    console.log("server is running on port 3000");
+})
